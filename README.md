@@ -7,7 +7,7 @@ ImageProcessing is project by Ales Hotko and was first released in April 2018. I
 
 ## Usage
 
-```
+```csharp
 ImageProcessing imageProcessing = new ImageProcessing();
 
 //Load image from File
