@@ -55,7 +55,7 @@ imageProcessing.SaveToFile(@"NewImage.bmp");
 * `EdgeHandling.Mirror` - The image is conceptually mirrored at the edges. For example, attempting to read a pixel 3 units outside an edge reads one 3 units inside the edge instead.
 * `EdgeHandling.Crop` - Any pixel in the output image which would require values from beyond the edge is skipped. This method can result in the output image being slightly smaller, with the edges having been cropped.
 
-#### Preset Kernels (5x5)
+#### Preset Convolution Kernels (5x5)
 * `PresetKernel.Identity`
 * `PresetKernel.Laplace`
 * `PresetKernel.HorizontalSobel`
