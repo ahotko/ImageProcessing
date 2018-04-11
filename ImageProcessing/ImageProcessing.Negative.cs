@@ -14,8 +14,8 @@ namespace ImageManipulation
         {
             unsafe
             {
-                BitmapData bitmapData = _bitmap.LockBits(new Rectangle(0, 0, _bitmap.Width, _bitmap.Height), ImageLockMode.ReadWrite, _bitmap.PixelFormat);
-                int bytesPerPixel = Bitmap.GetPixelFormatSize(_bitmap.PixelFormat) / 8;
+                BitmapData bitmapData = Image.LockBits(new Rectangle(0, 0, Image.Width, Image.Height), ImageLockMode.ReadWrite, Image.PixelFormat);
+                int bytesPerPixel = Bitmap.GetPixelFormatSize(Image.PixelFormat) / 8;
                 int heightInPixels = bitmapData.Height;
                 int widthInBytes = bitmapData.Width * bytesPerPixel;
                 byte* ptrFirstPixel = (byte*)bitmapData.Scan0;
@@ -30,7 +30,7 @@ namespace ImageManipulation
                         currentLine[x + 2] = (byte)(255 - currentLine[x + 2]);
                     }
                 }
-                _bitmap.UnlockBits(bitmapData);
+                Image.UnlockBits(bitmapData);
             }
         }
     }

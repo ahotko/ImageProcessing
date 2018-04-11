@@ -9,21 +9,20 @@ namespace ImageManipulation
 {
     public partial class ImageProcessing
     {
-        private Bitmap _bitmap;
         string _path = "";
 
-        public Bitmap Image { get { return _bitmap; } }
+        public Bitmap Image { get; private set; }
 
         public bool LoadFromFile(string path)
         {
-            _bitmap = new Bitmap(path);
+            Image = new Bitmap(path);
             _path = path;
             return true;
         }
 
         public bool SaveToFile(string path)
         {
-            _bitmap.Save(path);
+            Image.Save(path);
             return true;
         }
 

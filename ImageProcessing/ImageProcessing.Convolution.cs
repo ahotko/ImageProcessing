@@ -68,11 +68,11 @@ namespace ImageManipulation
         {
             unsafe
             {
-                var _workingBitmap = new Bitmap(_bitmap);
-                var _rect = new Rectangle(0, 0, _bitmap.Width, _bitmap.Height);
-                BitmapData _originalBitmapData = _bitmap.LockBits(_rect, ImageLockMode.ReadWrite, _bitmap.PixelFormat);
-                var _workingBitmapData = _workingBitmap.LockBits(_rect, ImageLockMode.ReadWrite, _bitmap.PixelFormat);
-                int _bytesPerPixel = Bitmap.GetPixelFormatSize(_bitmap.PixelFormat) / 8;
+                var _workingBitmap = new Bitmap(Image);
+                var _rect = new Rectangle(0, 0, Image.Width, Image.Height);
+                BitmapData _originalBitmapData = Image.LockBits(_rect, ImageLockMode.ReadWrite, Image.PixelFormat);
+                var _workingBitmapData = _workingBitmap.LockBits(_rect, ImageLockMode.ReadWrite, Image.PixelFormat);
+                int _bytesPerPixel = Bitmap.GetPixelFormatSize(Image.PixelFormat) / 8;
                 int _heightInPixels = _originalBitmapData.Height;
                 int _widthInBytes = _originalBitmapData.Width * _bytesPerPixel;
                 int _offset = kernel.Offset;
@@ -128,8 +128,8 @@ namespace ImageManipulation
                     }
                 }
                 _workingBitmap.UnlockBits(_workingBitmapData);
-                _bitmap.UnlockBits(_originalBitmapData);
-                _bitmap = _workingBitmap;
+                Image.UnlockBits(_originalBitmapData);
+                Image = _workingBitmap;
                 //originalBitmap = _workingBitmap.Clone(_rect, originalBitmap.PixelFormat);
                 //_workingBitmap.Save(@"C:\Users\rokr\Desktop\aaa_no.bmp");
             }
