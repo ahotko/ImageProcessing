@@ -66,6 +66,7 @@ namespace ImageManipulation
         private void SetKernel(PresetKernel kernel)
         {
             this.Size = 5; //call setter, so all other calculations are made
+            #region Preset Convolution Kernels
             switch (kernel)
             {
                 case PresetKernel.Identity:
@@ -307,6 +308,7 @@ namespace ImageManipulation
                 default:
                     break;
             }
+            #endregion
         }
 
         public void Normalize(double normalizeValue = 0.0)
