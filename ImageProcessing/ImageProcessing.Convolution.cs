@@ -56,10 +56,10 @@ namespace ImageManipulation
         }
 
 
-        public void GaussianBlur(double sigma = 1.0, bool normalize = false)
+        public void GaussianBlur(double sigma = 1.0, bool normalize = false, int kernelSize = 0)
         {
             var _kernel = new ConvolutionKernel();
-            _kernel.MakeGaussianKernel(sigma);
+            _kernel.MakeGaussianKernel(sigma, kernelSize);
             if (normalize) _kernel.Normalize();
             Convolution(_kernel, EdgeHandling.Extend);
         }

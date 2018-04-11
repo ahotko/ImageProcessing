@@ -329,9 +329,9 @@ namespace ImageManipulation
                 }
         }
 
-        public void MakeGaussianKernel(double sigma = 1.0)
+        public void MakeGaussianKernel(double sigma = 1.0, int size = 0)
         {
-            int _kernelSize = (int)Math.Round(6.0 * sigma) + 1;
+            int _kernelSize = (size == 0) ? (int)Math.Round(6.0 * sigma) + 1 : size;
             if (_kernelSize % 2 == 0) _kernelSize++;
             this.Size = _kernelSize;
             _bias = 0.0;
